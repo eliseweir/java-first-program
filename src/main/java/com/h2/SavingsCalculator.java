@@ -20,14 +20,14 @@ public class SavingsCalculator {
         int creditLength = creditsAsString.length;
         float[] credits = new float[creditLength];
         for (int i = 0; i < creditLength; i++) {
-            credits[i] = Float.parseFloat(creditsAsString[i]);
+            credits[i] = Utilities.getFloatValue(creditsAsString[i]);
         }
 
         // convert debits to numeric values
         int debitLength = debitsAsString.length;
         float[] debits = new float[debitLength];
         for (int i = 0; i < debitLength; i++) {
-            debits[i] = Float.parseFloat(debitsAsString[i]);
+            debits[i] = Utilities.getFloatValue(debitsAsString[i]);
         }
 
         // run the savings calculator on credits and debits, then display the results
@@ -66,7 +66,6 @@ public class SavingsCalculator {
     private static int remainingDaysInMonth(LocalDate date) {
         YearMonth yearMonth = YearMonth.of(date.getYear(), date.getMonth());
         int totalDaysInMonth = yearMonth.lengthOfMonth();
-        int remainingDays = totalDaysInMonth - date.getDayOfMonth();
-        return remainingDays;
+        return totalDaysInMonth - date.getDayOfMonth();
     }
 }
